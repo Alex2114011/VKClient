@@ -13,6 +13,7 @@ final class NewsFeedPostTableViewCell: UITableViewCell {
 
     private var viewModel: NewsFeedPostTableViewCellModel?
     var updateRow:(()->())?
+    var showPostSavesMessage:(()->())?
 
     lazy private var customViewCell: NewsFeedPostTableViewCellView = {
         let view = NewsFeedPostTableViewCellView()
@@ -82,5 +83,29 @@ extension NewsFeedPostTableViewCell: AbstractCell {
         }
 
         customViewCell.moreButton.addTarget(self, action: #selector(didTapMoreButton), for: .touchUpInside)
+
+        customViewCell.contextButton.addTarget(self, action: #selector(savePost), for: .touchUpInside)
+    }
+
+    @objc private func savePost() {
+        guard let viewModel = viewModel else { return }
+        let postsModel = FavoritesPosts(context: CoreDataStack.shared.managedContext)
+
+        postsModel.staticCellHeight = Float(viewModel.staticCellHeight)
+        postsModel.staticLabelHeight = Float(viewModel.staticLabelHeight)
+        postsModel.groupName = viewModel.groupName
+        postsModel.textPost = viewModel.textPost
+        postsModel.datePost = viewModel.datePost
+        postsModel.likeCounts = viewModel.likeCounts
+        postsModel.commentsCount = viewModel.commentsCount
+        postsModel.viewsCount = viewModel.viewsCount
+        postsModel.imagePost = nil
+        postsModel.imageGroup = customViewCell.groupImage.image?.pngData()
+        postsModel.heightTextLabel = Float(viewModel.heightTextLabel ?? 0)
+        postsModel.isMoreButtonHidden = viewModel.isMoreButtonHidden
+
+        CoreDataStack.shared.saveContext()
+        showPostSavesMessage?()
+
     }
 }

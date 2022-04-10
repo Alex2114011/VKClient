@@ -9,6 +9,8 @@
 import UIKit
 
 protocol NewsFeedPostTableViewCellModel {
+    var staticCellHeight: CGFloat { get }
+    var staticLabelHeight: CGFloat { get }
     var groupName: String { get }
     var textPost: String { get }
     var datePost: String { get }
@@ -26,8 +28,8 @@ final class NewsFeedPostTableViewCellModelImpl: NewsFeedPostTableViewCellModel {
     //MARK: - Private property
 
     private var dynamicCellHeight: CGFloat = 0
-    private var staticCellHeight: CGFloat = 227.5
-    private var staticLabelHeight: CGFloat = 33.6
+     var staticCellHeight: CGFloat = 227.5
+     var staticLabelHeight: CGFloat = 33.6
 
     //MARK: - NewsFeedPostTableViewCellModel
 

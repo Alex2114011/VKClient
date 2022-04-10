@@ -40,8 +40,18 @@ final class FavoritesPostsViewController: UIViewController {
         navigationItem.title = "Избранное"
         navigationController?.hidesBarsOnSwipe = true
         configureTableView()
-        viewModel.fetchFavoritesPosts()
         reloadTable()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchFavoritesPosts()
+
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.zeroingViewCellModels()
     }
 }
 
@@ -49,10 +59,11 @@ final class FavoritesPostsViewController: UIViewController {
 
 extension FavoritesPostsViewController {
     private func configureTableView() {
-//        favoritesPostsView.favoritesPostsTableView.delegate = self
-//        favoritesPostsView.favoritesPostsTableView.dataSource = self
-        favoritesPostsView.favoritesPostsTableView.register(cell: NewsFeedPostTableViewCell.self)
-        favoritesPostsView.favoritesPostsTableView.register(cell: NewsFeedImageTableViewCell.self)
+        favoritesPostsView.favoritesPostsTableView.delegate = self
+        favoritesPostsView.favoritesPostsTableView.dataSource = self
+        favoritesPostsView.favoritesPostsTableView.register(cell: FavoritesImagesPostsViewCell.self)
+        favoritesPostsView.favoritesPostsTableView.register(cell: FavoritesTextPostsViewCell.self)
+
     }
 
     private func reloadTable() {
@@ -72,45 +83,50 @@ extension FavoritesPostsViewController {
 
 //MARK: - UITableViewDataSource
 
-//extension FavoritesPostsViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        viewModel.viewCellModels.count
-//    }
+extension FavoritesPostsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.viewCellModels.count
+    }
 
-
-
-
-
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let item = viewModel.viewCellModels[indexPath.row]
-//        let cell = tableView.dequeueReusableCell(withIdentifier: item.cellIdentifier(), for: indexPath) as! AbstractCell
-//        cell.configureCell(with: item)
-//        cell.updateRow = {
-//            tableView.beginUpdates()
-//            tableView.endUpdates()
-//        }
-//        let imageCell = cell as? NewsFeedImageTableViewCell
-//        imageCell?.passImage = { image in
-//            self.presentDetailViewController(with: image)
-//        }
-//        return cell
-//    }
-//}
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = viewModel.viewCellModels[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: item.cellIdentifier(), for: indexPath) as! AbstractCell
+        cell.configureCell(with: item)
+        cell.updateRow = {
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
+        let imageCell = cell as? FavoritesImagesPostsViewCell
+        imageCell?.passImage = { image in
+            self.presentDetailViewController(with: image)
+        }
+        return cell
+    }
+}
 
 //MARK: - UITableViewDelegate
 
-//extension FavoritesPostsViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if indexPath.row - 3 >= viewModel.viewCellModels.count - 4 {
-//            viewModel.fetchNextNews()
-//        }
-//    }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let item = viewModel.viewCellModels[indexPath.row].height()
-//        switch item {
-//        case .value(let height):
-//            return CGFloat(height)
-//        }
-//    }
-//}
+extension FavoritesPostsViewController: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let item = viewModel.viewCellModels[indexPath.row].height()
+        switch item {
+        case .value(let height):
+            return CGFloat(height)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let index = indexPath.row
+            self.viewModel.deleteFavoritesPosts(with: index)
+            favoritesPostsView.favoritesPostsTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+}

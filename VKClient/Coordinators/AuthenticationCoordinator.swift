@@ -63,6 +63,4 @@ extension AuthenticationCoordinatorImp: AuthenticationCoordinator {
             self.coordinatorDidAuthenticate?(self)
         }
     }
-
-
 }

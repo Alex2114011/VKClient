@@ -15,6 +15,8 @@ final class NetworkBuilderImpl {
 
 }
 
+//MARK: - NetworkBuilder
+
 extension NetworkBuilderImpl: NetworkBuilder {
     
     func createGetNewsFeedService() -> GetNewsFeedService {

@@ -14,11 +14,4 @@ extension String {
         let height = actualSize.integral.height
         return height
     }
-    
-    func width(withHeight height: CGFloat, font: UIFont) -> CGFloat {
-        let maxSize = CGSize(width: CGFloat.greatestFiniteMagnitude, height: height)
-        let actualSize = self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [.font : font], context: nil)
-        let width = actualSize.integral.width
-        return width
-    }
 }

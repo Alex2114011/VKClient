@@ -40,7 +40,7 @@ final class NewsFeedImageTableViewCellView: UIView {
         return label
     }()
 
-    lazy var contextButton: UIButton = {
+    lazy var saveFavoritesButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "note.text.badge.plus"), for: .normal)
         button.tintColor = UIColor(red: 153/255, green: 159/255, blue: 173/255, alpha: 1)
@@ -117,7 +117,7 @@ extension NewsFeedImageTableViewCellView {
         rootContentView.addSubviews([groupImage,
                                      groupName,
                                      dateLabel,
-                                     contextButton,
+                                     saveFavoritesButton,
                                      postTextView,
                                      moreButton,
                                      postImageView,
@@ -137,12 +137,12 @@ extension NewsFeedImageTableViewCellView {
 
                                      groupName.topAnchor.constraint(equalTo: groupImage.topAnchor),
                                      groupName.leadingAnchor.constraint(equalTo: groupImage.trailingAnchor, constant: 10),
-                                     groupName.trailingAnchor.constraint(equalTo: contextButton.leadingAnchor, constant: -10),
+                                     groupName.trailingAnchor.constraint(equalTo: saveFavoritesButton.leadingAnchor, constant: -10),
 
-                                     contextButton.topAnchor.constraint(equalTo: rootContentView.topAnchor, constant: 20),
-                                     contextButton.trailingAnchor.constraint(equalTo: rootContentView.trailingAnchor, constant: -20),
-                                     contextButton.heightAnchor.constraint(equalToConstant: 25),
-                                     contextButton.widthAnchor.constraint(equalTo: contextButton.heightAnchor),
+                                     saveFavoritesButton.topAnchor.constraint(equalTo: rootContentView.topAnchor, constant: 20),
+                                     saveFavoritesButton.trailingAnchor.constraint(equalTo: rootContentView.trailingAnchor, constant: -20),
+                                     saveFavoritesButton.heightAnchor.constraint(equalToConstant: 25),
+                                     saveFavoritesButton.widthAnchor.constraint(equalTo: saveFavoritesButton.heightAnchor),
 
                                      dateLabel.topAnchor.constraint(equalTo: groupName.bottomAnchor, constant: 6),
                                      dateLabel.leadingAnchor.constraint(equalTo: groupName.leadingAnchor),

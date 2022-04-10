@@ -73,7 +73,6 @@ extension NetworkCoreImpl {
         }
     }
 
-
     private func handleSuccsesDataRespones<Res: Responsable>(_ data: Data, completion: (CoreResult<Res>) -> Void) {
         do {
             completion(.success(try decodeData(data: data)))
@@ -83,8 +82,6 @@ extension NetworkCoreImpl {
     }
     
     private func decodeData<Res: Responsable>(data: Data) throws -> Res {
-//        let json = try JSONSerialization.jsonObject(with: data, options: [])
-//        print(json)
         let respones = try JSONDecoder().decode(Res.self, from: data)
         return respones
     }

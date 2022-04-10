@@ -8,10 +8,20 @@
 import UIKit
 
 final class FabricModelCell {
+
     static func makeTextModelCell(with item: ResponseItem, and group: Group)-> AbstractModelCell {
         return NewsFeedPostTableViewCellModelImpl(with: item, and: group)
     }
+    
     static func makeImageModelCell(with item: ResponseItem, and group: Group)-> AbstractModelCell {
         return NewsFeedImageTableViewCellModelImpl(with: item, and: group)
+    }
+    
+    static func makeFavoritesModelCell(with model: FavoritesPosts)-> AbstractModelCell {
+        if model.imagePost != nil {
+            return FavoritesImagesPostsViewModelCellImpl(with: model)
+        } else {
+            return FavoritesTextPostViewModelCellImpl(with: model)
+        }
     }
 }

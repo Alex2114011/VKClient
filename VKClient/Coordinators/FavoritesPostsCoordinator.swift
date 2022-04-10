@@ -29,13 +29,12 @@ final class FavoritesPostsCoordinatorImpl: Coordinator {
     }
 }
 
-//MARK: - NewsFeedCoordinator
+//MARK: - FavoritesPostsCoordinator
 
 extension FavoritesPostsCoordinatorImpl: FavoritesPostsCoordinator {
     func showFavoritesPostsViewController() {
-//        let networkBuilder = NetworkBuilderImpl()
-//        let newsViewModel = NewsFeedViewModelImpl(networkService: networkBuilder)
-//        let newsFeedViewController = NewsFeedViewController(viewModel: newsViewModel)
-//        navigationController.pushViewController(newsFeedViewController, animated: true)
+        let favoritesPostsViewModel = FavoritesPostsViewModelImpl()
+        let favoritesPostsViewController = FavoritesPostsViewController(viewModel: favoritesPostsViewModel)
+        navigationController.pushViewController(favoritesPostsViewController, animated: true)
     }
 }

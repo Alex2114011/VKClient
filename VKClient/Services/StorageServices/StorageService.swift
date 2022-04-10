@@ -9,7 +9,6 @@ import Foundation
 
 protocol StorageService: AnyObject {
     var secureStorageService: KeyChainService { get set}
-//    var persistentStorageService: { get }
 }
 
 final class StorageServiceImpl: StorageService {

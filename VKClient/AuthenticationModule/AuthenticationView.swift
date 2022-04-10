@@ -43,7 +43,6 @@ final class AuthenticationView: UIView {
 
     //MARK: - Life cycle
 
-
     override func layoutSubviews() {
         super.layoutSubviews()
         setupUI()

@@ -30,6 +30,8 @@ final class URLPrepareImpl {
     }
 }
 
+//MARK: - URLPrepare
+
 extension URLPrepareImpl: URLPrepare {
 
     func prepareSearchRequest(url: URL,

@@ -37,6 +37,7 @@ final class MainTabBarCoordinator: Coordinator {
 //MARK: - Private methods
 
 extension MainTabBarCoordinator {
+    
     private func initializeHomeTabBar() {
         let tabBar = CustomTabBarController()
         let feedNavigationController = UINavigationController()
@@ -46,14 +47,12 @@ extension MainTabBarCoordinator {
         feedItem.image = UIImage(named: "newspaper")
         feedNavigationController.tabBarItem = feedItem
 
-
         let favoritesNavigationController = UINavigationController()
         let favoritesCoordinator = FavoritesPostsCoordinatorImpl(navigationController: favoritesNavigationController)
         let favoritesItem = UITabBarItem()
         favoritesItem.title = "Избранное"
         favoritesItem.image = UIImage(systemName: "star")
         favoritesNavigationController.tabBarItem = favoritesItem
-
 
         tabBar.viewControllers = [feedNavigationController, favoritesNavigationController]
         navigationController.setNavigationBarHidden(true, animated: true)

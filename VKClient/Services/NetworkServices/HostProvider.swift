@@ -19,6 +19,8 @@ final class HostProviderImpl {
     private var host: Host = .world
 }
 
+//MARK: - HostProvider
+
 extension HostProviderImpl: HostProvider {
     func getHostURL() -> URL {
         switch host {

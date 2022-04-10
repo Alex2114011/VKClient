@@ -14,7 +14,7 @@ extension UIViewController {
         let toastLabel = UILabel(
             frame: CGRect(
                 x: self.view.frame.size.width/2 - 125,
-                y: self.view.frame.size.height-200, width: 250, height: 35))
+                y: self.view.frame.size.height/2, width: 250, height: 35))
         toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         toastLabel.textColor = UIColor.white
         toastLabel.font = font
@@ -25,7 +25,7 @@ extension UIViewController {
         toastLabel.layer.cornerRadius = 10
         toastLabel.clipsToBounds  =  true
         self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 3.0, delay: 5, options: .curveEaseOut) {
+        UIView.animate(withDuration: 3.0, delay: 1, options: .curveEaseOut) {
             toastLabel.alpha = 0.0
         } completion: { _ in
             toastLabel.removeFromSuperview()

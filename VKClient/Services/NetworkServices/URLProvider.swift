@@ -15,6 +15,8 @@ final class URLProviderImpl {
 
 }
 
+//MARK: - URLProvider
+
 extension URLProviderImpl: URLProvider {
     var getNewsFeed: URL {
         return URL(string: "newsfeed.get")!

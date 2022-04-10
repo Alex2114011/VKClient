@@ -95,9 +95,18 @@ extension NewsFeedViewController: UITableViewDataSource {
             tableView.beginUpdates()
             tableView.endUpdates()
         }
+
         let imageCell = cell as? NewsFeedImageTableViewCell
+        let textCell = cell as? NewsFeedPostTableViewCell
+        
         imageCell?.passImage = { image in
             self.presentDetailViewController(with: image)
+        }
+        imageCell?.showPostSavesMessage = {
+            self.showToast(message: "Пост сохранен в избранное")
+        }
+        textCell?.showPostSavesMessage = {
+            self.showToast(message: "Пост сохранен в избранное")
         }
         return cell
     }

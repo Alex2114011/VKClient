@@ -5,7 +5,6 @@
 //  Created by Alex on 01.04.2022.
 //
 
-
 import Foundation
 
 protocol NewsFeedViewModel {
@@ -14,7 +13,6 @@ protocol NewsFeedViewModel {
     var viewCellModels: [AbstractModelCell] { get set }
     func fetchNews()
     func fetchNextNews()
-
 }
 
 final class NewsFeedViewModelImpl {
@@ -60,7 +58,7 @@ extension NewsFeedViewModelImpl: NewsFeedViewModel {
             }
         }
     }
-
+    //MARK: - TODO ппивести в божеский вид
     func fetchNextNews() {
         guard let nextNewsFrom = nextNewsFrom else { return }
         let getNewsFeedService = networkService.createGetNewsFeedService()
@@ -110,7 +108,7 @@ extension NewsFeedViewModelImpl {
         }
         return indexes
     }
-    
+    //MARK: - TODO ппивести в божеский вид
     private func makeModels() {
         newsFeedModel.forEach { model in
             nextNewsFrom = model.response?.nextFrom

@@ -14,9 +14,4 @@ extension UITableView {
          let name = String(describing: cell.self)
          register(cell, forCellReuseIdentifier: name)
      }
-    
-    func getCell<T: UITableViewCell>(_ cell: T.Type, _ indexPath: IndexPath) -> T {
-        let identifier = String(describing: cell.self)
-        return dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? T ?? T()
-    }
 }

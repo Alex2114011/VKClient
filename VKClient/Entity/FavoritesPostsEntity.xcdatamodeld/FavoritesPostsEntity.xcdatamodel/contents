@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavoritesPosts" representedClassName="FavoritesPosts" syncable="YES">
+        <attribute name="commentsCount" optional="YES" attributeType="String"/>
+        <attribute name="datePost" optional="YES" attributeType="String"/>
+        <attribute name="groupName" optional="YES" attributeType="String"/>
+        <attribute name="heightTextLabel" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="imageGroup" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="imagePost" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="isMoreButtonHidden" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="likeCounts" optional="YES" attributeType="String"/>
+        <attribute name="staticCellHeight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="staticLabelHeight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="textPost" optional="YES" attributeType="String"/>
+        <attribute name="viewsCount" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="FavoritesPosts" positionX="-63" positionY="-18" width="128" height="209"/>
+    </elements>
+</model>

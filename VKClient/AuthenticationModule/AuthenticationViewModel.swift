@@ -35,11 +35,11 @@ final class AuthenticationViewModelImpl {
     }
 }
 
-
 //MARK: - AuthenticationViewModel
+
 extension AuthenticationViewModelImpl: AuthenticationViewModel {
     func didAuthenticationpassed() {
-        authenticationPassed!()
+        authenticationPassed?()
     }
     
     func saveToken(with key: KeyToken, token: String) {
