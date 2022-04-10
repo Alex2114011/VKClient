@@ -1,5 +1,5 @@
 //
-//  FavoritesTextPostsViewCell.swift
+//  FavoritesImagesPostsViewCell.swift
 //  VKClient
 //
 //  Created by Alex on 10.04.2022.
@@ -7,15 +7,19 @@
 
 import UIKit
 
-final class FavoritesTextPostsViewCell: UITableViewCell {
+final class FavoritesImagePostsTableViewCell: UITableViewCell {
+
+    //MARK: - Callback
+
+    var updateRow:(()->())?
+    var passImage:((UIImage)->())?
 
     //MARK: - Private property
 
-    private var viewModel: FavoritesTextPostViewModelCell?
-    var updateRow:(()->())?
+    private var viewModel: FavoritesImagePostsViewModelCell?
 
-    lazy private var customViewCell: NewsFeedPostTableViewCellView = {
-        let view = NewsFeedPostTableViewCellView()
+    private lazy var customViewCell: CustomImagePostTableCellView = {
+        let view = CustomImagePostTableCellView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -25,6 +29,7 @@ final class FavoritesTextPostsViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
+        print("init \(self)")
     }
 
     required init?(coder: NSCoder) {
@@ -34,7 +39,7 @@ final class FavoritesTextPostsViewCell: UITableViewCell {
 
 //MARK: - Private methods
 
-extension FavoritesTextPostsViewCell {
+extension FavoritesImagePostsTableViewCell {
 
     private func setupUI() {
         selectionStyle = .none
@@ -44,37 +49,49 @@ extension FavoritesTextPostsViewCell {
                                      customViewCell.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                                      customViewCell.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                                      customViewCell.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor)])
+
+
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentImage))
+        customViewCell.postImageView.addGestureRecognizer(tapRecognizer)
+        customViewCell.postImageView.isUserInteractionEnabled = true
     }
 
     @objc private func didTapMoreButton() {
         guard let viewModel = viewModel, let height = viewModel.heightTextLabel else { return }
-        self.viewModel?.change(height: viewModel.staticCellHeight + (height - viewModel.staticLabelHeight))
+        self.viewModel?.change(height: (viewModel.staticCellHeight) + (height - viewModel.staticLabelHeight))
         updateRow?()
         customViewCell.moreButton.isHidden = true
     }
+
+    @objc private func presentImage(){
+        guard let image = customViewCell.postImageView.image else { return }
+        passImage?(image)
+    }
 }
+
 
 //MARK: - AbstractCell
 
-extension FavoritesTextPostsViewCell: AbstractCell {
+extension FavoritesImagePostsTableViewCell: AbstractCell {
 
     func configureCell(with object: AbstractModelCell) {
-        guard let model = object as? FavoritesTextPostViewModelCell else { return }
+        guard let model = object as? FavoritesImagePostsViewModelCell else { return }
         viewModel = model
         guard let viewModel = viewModel else { return }
-
         customViewCell.moreButton.isHidden = true
         customViewCell.moreButton.isHidden = viewModel.isMoreButtonHidden
 
-        customViewCell.groupName.text = viewModel.groupName
-        customViewCell.postTextView.text = viewModel.textPost
-        customViewCell.dateLabel.text = viewModel.datePost
-        customViewCell.likesButton.button.setTitle(viewModel.likeCounts, for: .normal)
-        customViewCell.comentsButton.button.setTitle(viewModel.commentsCount, for: .normal)
-        customViewCell.viewsButton.button.setTitle(viewModel.viewsCount, for: .normal)
-        customViewCell.groupImage.image = viewModel.imageGroup
+        customViewCell.groupName.text = model.groupName
+        customViewCell.postTextView.text = model.textPost
+        customViewCell.dateLabel.text = model.datePost
+        customViewCell.likesButton.button.setTitle(model.likeCounts, for: .normal)
+        customViewCell.comentsButton.button.setTitle(model.commentsCount, for: .normal)
+        customViewCell.viewsButton.button.setTitle(model.viewsCount, for: .normal)
+        customViewCell.groupImage.image = model.imageGroup
+        customViewCell.postImageView.image = model.imagePost
 
         customViewCell.moreButton.addTarget(self, action: #selector(didTapMoreButton), for: .touchUpInside)
-        
+        customViewCell.saveFavoritesButton.isHidden = true
     }
 }
+

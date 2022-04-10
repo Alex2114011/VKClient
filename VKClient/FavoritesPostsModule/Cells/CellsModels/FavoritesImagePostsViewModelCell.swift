@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol FavoritesImagesPostsViewModelCell {
+protocol FavoritesImagePostsViewModelCell {
     var staticCellHeight: CGFloat { get }
     var staticLabelHeight: CGFloat { get }
     var groupName: String { get }
@@ -23,7 +23,7 @@ protocol FavoritesImagesPostsViewModelCell {
     func change(height value: CGFloat)
 }
 
-final class FavoritesImagesPostsViewModelCellImpl: FavoritesImagesPostsViewModelCell {
+final class FavoritesImagesPostsViewModelCellImpl: FavoritesImagePostsViewModelCell {
     
     //MARK: - Private property
     
@@ -93,7 +93,7 @@ extension FavoritesImagesPostsViewModelCellImpl {
 extension FavoritesImagesPostsViewModelCellImpl: AbstractModelCell {
     
     func cellIdentifier() -> String {
-        return String(describing: FavoritesImagesPostsViewCell.self)
+        return String(describing: FavoritesImagePostsTableViewCell.self)
     }
     
     func height() -> CellHeight {

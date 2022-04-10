@@ -81,7 +81,7 @@ extension DetailImageViewController {
                                            toItem: view,
                                            attribute: .centerY,
                                            multiplier: 1, constant: moveValue)
-        
+
         guard let centerYAnchor = centerYAnchor  else { return }
         NSLayoutConstraint.activate([presentImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      centerYAnchor,

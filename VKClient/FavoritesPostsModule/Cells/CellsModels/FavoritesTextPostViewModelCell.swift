@@ -90,7 +90,7 @@ extension FavoritesTextPostViewModelCellImpl {
 
 extension FavoritesTextPostViewModelCellImpl: AbstractModelCell {
     func cellIdentifier() -> String {
-        return String(describing: FavoritesTextPostsViewCell.self)
+        return String(describing: FavoritesTextPostsTableViewCell.self)
     }
     
     func height() -> CellHeight {

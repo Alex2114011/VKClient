@@ -19,8 +19,8 @@ final class NewsFeedImageTableViewCell: UITableViewCell {
 
     private var viewModel: NewsFeedImageTableViewCellModel?
 
-    private lazy var customViewCell: NewsFeedImageTableViewCellView = {
-        let view = NewsFeedImageTableViewCellView()
+    private lazy var customViewCell: CustomImagePostTableCellView = {
+        let view = CustomImagePostTableCellView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

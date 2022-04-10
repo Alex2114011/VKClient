@@ -15,8 +15,8 @@ final class NewsFeedPostTableViewCell: UITableViewCell {
     var updateRow:(()->())?
     var showPostSavesMessage:(()->())?
 
-    lazy private var customViewCell: NewsFeedPostTableViewCellView = {
-        let view = NewsFeedPostTableViewCellView()
+    lazy private var customViewCell: CustomTextPostTableCellView = {
+        let view = CustomTextPostTableCellView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

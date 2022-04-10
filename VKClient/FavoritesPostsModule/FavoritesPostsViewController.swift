@@ -61,8 +61,8 @@ extension FavoritesPostsViewController {
     private func configureTableView() {
         favoritesPostsView.favoritesPostsTableView.delegate = self
         favoritesPostsView.favoritesPostsTableView.dataSource = self
-        favoritesPostsView.favoritesPostsTableView.register(cell: FavoritesImagesPostsViewCell.self)
-        favoritesPostsView.favoritesPostsTableView.register(cell: FavoritesTextPostsViewCell.self)
+        favoritesPostsView.favoritesPostsTableView.register(cell: FavoritesImagePostsTableViewCell.self)
+        favoritesPostsView.favoritesPostsTableView.register(cell: FavoritesTextPostsTableViewCell.self)
 
     }
 
@@ -96,7 +96,7 @@ extension FavoritesPostsViewController: UITableViewDataSource {
             tableView.beginUpdates()
             tableView.endUpdates()
         }
-        let imageCell = cell as? FavoritesImagesPostsViewCell
+        let imageCell = cell as? FavoritesImagePostsTableViewCell
         imageCell?.passImage = { image in
             self.presentDetailViewController(with: image)
         }

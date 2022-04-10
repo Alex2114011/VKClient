@@ -6,7 +6,7 @@
 //
 import UIKit
 
-final class NewsFeedImageTableViewCellView: UIView {
+final class CustomImagePostTableCellView: UIView {
 
     //MARK: - Public property
 
@@ -111,7 +111,7 @@ final class NewsFeedImageTableViewCellView: UIView {
 
 //MARK: - Private methods
 
-extension NewsFeedImageTableViewCellView {
+extension CustomImagePostTableCellView {
     private func setupUI() {
         addSubview(rootContentView)
         rootContentView.addSubviews([groupImage,

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class NewsFeedPostTableViewCellView: UIView {
+final class CustomTextPostTableCellView: UIView {
 
     //MARK: - Public property
 
@@ -105,7 +105,7 @@ final class NewsFeedPostTableViewCellView: UIView {
 
 //MARK: - Private methods
 
-extension NewsFeedPostTableViewCellView {
+extension CustomTextPostTableCellView {
     private func setupUI() {
         addSubview(rootContentView)
         rootContentView.addSubviews([groupImage,
