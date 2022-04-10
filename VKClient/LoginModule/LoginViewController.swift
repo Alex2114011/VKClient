@@ -39,10 +39,6 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    deinit {
-        print("dealloc \(self)")
-    }
 }
 
 //MARK: - Public methods

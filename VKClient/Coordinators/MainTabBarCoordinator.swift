@@ -25,11 +25,6 @@ final class MainTabBarCoordinator: Coordinator {
 
     func start() {
         initializeHomeTabBar()
-        print("MainTabBar Coordinator Init")
-        
-    }
-    deinit {
-        print("HomeTabbar Coordinator Deinit")
     }
 
 }

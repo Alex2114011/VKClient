@@ -8,12 +8,12 @@
 import Foundation
 
 protocol StorageService: AnyObject {
-    var secureStorageService: KeyChainService { get set}
+    var secureStorageService: KeyChainService { get set }
 }
 
 final class StorageServiceImpl: StorageService {
     var secureStorageService: KeyChainService
-
+    
     init(secureStorageService: KeyChainService) {
         self.secureStorageService = secureStorageService
     }

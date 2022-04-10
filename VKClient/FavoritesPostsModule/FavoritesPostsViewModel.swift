@@ -52,7 +52,6 @@ extension FavoritesPostsViewModelImpl: FavoritesPostsViewModel {
 
     func deleteFavoritesPosts(with index: Int) {
         guard let postToRemove = postsModel?[index] else { return }
-        print(index)
 
         viewCellModels.remove(at: index)
         postsModel?.remove(at: index)

@@ -106,6 +106,5 @@ extension NewsFeedPostTableViewCell: AbstractCell {
 
         CoreDataStack.shared.saveContext()
         showPostSavesMessage?()
-
     }
 }

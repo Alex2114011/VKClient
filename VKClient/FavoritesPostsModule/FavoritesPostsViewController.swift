@@ -97,7 +97,8 @@ extension FavoritesPostsViewController: UITableViewDataSource {
             tableView.endUpdates()
         }
         let imageCell = cell as? FavoritesImagePostsTableViewCell
-        imageCell?.passImage = { image in
+        imageCell?.passImage = { [weak self] image in
+            guard let self = self else { return }
             self.presentDetailViewController(with: image)
         }
         return cell

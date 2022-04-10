@@ -40,10 +40,6 @@ final class AuthenticationViewController: UIViewController {
         super.viewDidLoad()
         configureView()
     }
-
-    deinit {
-        print("dealloc \(self)")
-    }
 }
 
 //MARK: - Private methods

@@ -37,10 +37,6 @@ final class AuthenticationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    deinit {
-        print("dealloc \(self)")
-    }
-
     //MARK: - Life cycle
 
     override func layoutSubviews() {

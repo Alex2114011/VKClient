@@ -9,4 +9,6 @@ import UIKit
 
 enum CustomColors: String {
     case activeElements
+    case textColor
+    case customBackround
 }

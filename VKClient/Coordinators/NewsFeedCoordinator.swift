@@ -24,7 +24,6 @@ final class NewsFeedCoordinatorImp: Coordinator {
     }
 
     func start() {
-        print("init \(self)")
         showFeedViewController()
     }
 }

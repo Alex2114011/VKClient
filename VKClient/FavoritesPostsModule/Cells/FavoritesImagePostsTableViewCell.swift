@@ -29,7 +29,6 @@ final class FavoritesImagePostsTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
-        print("init \(self)")
     }
 
     required init?(coder: NSCoder) {
@@ -63,7 +62,7 @@ extension FavoritesImagePostsTableViewCell {
         customViewCell.moreButton.isHidden = true
     }
 
-    @objc private func presentImage(){
+    @objc private func presentImage() {
         guard let image = customViewCell.postImageView.image else { return }
         passImage?(image)
     }

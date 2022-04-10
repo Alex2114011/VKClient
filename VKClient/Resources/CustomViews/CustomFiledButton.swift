@@ -30,7 +30,7 @@ final class CustomFiledButton: UIView {
 
     lazy var backroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        view.backgroundColor = UIColor(named: CustomColors.customBackround.rawValue)
         view.layer.cornerRadius = 15
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -38,7 +38,7 @@ final class CustomFiledButton: UIView {
 
     lazy var button: UIButton = {
         let button = UIButton(type: .system)
-        button.tintColor = UIColor(red: 153/255, green: 159/255, blue: 173/255, alpha: 1)
+        button.tintColor = UIColor(named: CustomColors.textColor.rawValue)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

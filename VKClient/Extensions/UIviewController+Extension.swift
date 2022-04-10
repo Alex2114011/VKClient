@@ -23,7 +23,7 @@ extension UIViewController {
         toastLabel.text = message
         toastLabel.alpha = 1.0
         toastLabel.layer.cornerRadius = 10
-        toastLabel.clipsToBounds  =  true
+        toastLabel.clipsToBounds = true
         self.view.addSubview(toastLabel)
         UIView.animate(withDuration: 3.0, delay: 1, options: .curveEaseOut) {
             toastLabel.alpha = 0.0

@@ -32,10 +32,6 @@ final class AuthenticationCoordinatorImp: Coordinator {
     func start() {
         showLoginViewController()
     }
-
-    deinit {
-        print("dealloc \(self)")
-    }
 }
 
 //MARK: - AuthenticationCoordinator

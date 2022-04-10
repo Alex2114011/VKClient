@@ -60,7 +60,6 @@
 		FAAE8A8427F4DCCB009EC85A /* NewsFeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE8A8327F4DCCB009EC85A /* NewsFeedCoordinator.swift */; };
 		FAAE8A8627F5950C009EC85A /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE8A8527F5950C009EC85A /* CustomTabBarController.swift */; };
 		FAC4AF6C2800BCFA002B4302 /* DetailImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4AF6B2800BCFA002B4302 /* DetailImageViewController.swift */; };
-		FAC4AF902801A10B002B4302 /* AllertControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4AF8F2801A10B002B4302 /* AllertControllerViewController.swift */; };
 		FAC4AF922801AB1A002B4302 /* UIviewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4AF912801AB1A002B4302 /* UIviewController+Extension.swift */; };
 		FAC4AF942801C0B3002B4302 /* Abstrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4AF932801C0B3002B4302 /* Abstrations.swift */; };
 		FACE8BE727F093D600D4B882 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8BE627F093D600D4B882 /* LoginViewController.swift */; };
@@ -130,7 +129,6 @@
 		FAAE8A8327F4DCCB009EC85A /* NewsFeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedCoordinator.swift; sourceTree = "<group>"; };
 		FAAE8A8527F5950C009EC85A /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		FAC4AF6B2800BCFA002B4302 /* DetailImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageViewController.swift; sourceTree = "<group>"; };
-		FAC4AF8F2801A10B002B4302 /* AllertControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllertControllerViewController.swift; sourceTree = "<group>"; };
 		FAC4AF912801AB1A002B4302 /* UIviewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIviewController+Extension.swift"; sourceTree = "<group>"; };
 		FAC4AF932801C0B3002B4302 /* Abstrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abstrations.swift; sourceTree = "<group>"; };
 		FACE8BE627F093D600D4B882 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -298,7 +296,6 @@
 		FA88C03127EDD52B00FFF59C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FA88C05327EE4CF200FFF59C /* AllertController */,
 				FA88C03327EDD54800FFF59C /* StorageServices */,
 				FA88C03227EDD53900FFF59C /* NetworkServices */,
 			);
@@ -359,14 +356,6 @@
 				FA88C03D27EE1F2D00FFF59C /* HTTPURLResponse Extension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		FA88C05327EE4CF200FFF59C /* AllertController */ = {
-			isa = PBXGroup;
-			children = (
-				FAC4AF8F2801A10B002B4302 /* AllertControllerViewController.swift */,
-			);
-			path = AllertController;
 			sourceTree = "<group>";
 		};
 		FAAE8A6827F465DE009EC85A /* Helpers */ = {
@@ -522,7 +511,6 @@
 				FAAE8A7C27F4BE44009EC85A /* MainTabBarCoordinator.swift in Sources */,
 				FAE62B912802CD2300AD59BB /* FavoritesPostsView.swift in Sources */,
 				FA1F74472802CA9600F8891C /* CustomImagePostTableCellView.swift in Sources */,
-				FAC4AF902801A10B002B4302 /* AllertControllerViewController.swift in Sources */,
 				FAC4AF6C2800BCFA002B4302 /* DetailImageViewController.swift in Sources */,
 				FACE8BE727F093D600D4B882 /* LoginViewController.swift in Sources */,
 				FAAE8A7E27F4C59E009EC85A /* LoginView.swift in Sources */,

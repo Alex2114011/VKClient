@@ -36,7 +36,7 @@ final class CustomTextPostTableCellView: UIView {
     lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13, weight: .regular)
-        label.textColor = UIColor(red: 153/255, green: 159/255, blue: 173/255, alpha: 1)
+        label.textColor = UIColor(named: CustomColors.textColor.rawValue)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -44,7 +44,7 @@ final class CustomTextPostTableCellView: UIView {
     lazy var contextButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "note.text.badge.plus"), for: .normal)
-        button.tintColor = UIColor(red: 153/255, green: 159/255, blue: 173/255, alpha: 1)
+        button.tintColor = UIColor(named: CustomColors.activeElements.rawValue)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

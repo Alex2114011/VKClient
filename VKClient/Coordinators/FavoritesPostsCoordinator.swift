@@ -24,7 +24,6 @@ final class FavoritesPostsCoordinatorImpl: Coordinator {
     }
 
     func start() {
-        print("init \(self)")
         showFavoritesPostsViewController()
     }
 }

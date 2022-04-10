@@ -99,13 +99,16 @@ extension NewsFeedViewController: UITableViewDataSource {
         let imageCell = cell as? NewsFeedImageTableViewCell
         let textCell = cell as? NewsFeedPostTableViewCell
         
-        imageCell?.passImage = { image in
+        imageCell?.passImage = {[weak self] image in
+            guard let self = self else { return }
             self.presentDetailViewController(with: image)
         }
-        imageCell?.showPostSavesMessage = {
+        imageCell?.showPostSavesMessage = { [weak self] in
+            guard let self = self else { return }
             self.showToast(message: "Пост сохранен в избранное")
         }
-        textCell?.showPostSavesMessage = {
+        textCell?.showPostSavesMessage = { [weak self] in
+            guard let self = self else { return }
             self.showToast(message: "Пост сохранен в избранное")
         }
         return cell

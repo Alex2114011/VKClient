@@ -37,9 +37,6 @@ extension NetworkCoreImpl: NetworkCore {
             urlSession.dataTask(with: urlRequest) { data, response, error in
                 if error != nil {
                     completion(.failure(NetworkError.connectionError))
-                    //todo alert controller
-                    // когда нет сервака или таймаут
-                    print(error?.localizedDescription as Any)
                     return
                 }
                 self.checkResponse(response: response, data: data, completion: completion)
@@ -58,14 +55,10 @@ extension NetworkCoreImpl {
                 guard let data = data else { return }
                 self.handleSuccsesDataRespones(data, completion: completion)
             case .clientError:
-                //todo alert controller
-                print(response.statusCode)
-                completion(.failure(NetworkError.connectionError))
+                completion(.failure(NetworkError.responseDecodingError))
                 break
             case .serverError:
-                //todo alert controller
                 completion(.failure(NetworkError.connectionError))
-                print(response.statusCode)
                 break
             case .undefined:
                 break

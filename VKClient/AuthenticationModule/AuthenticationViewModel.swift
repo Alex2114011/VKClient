@@ -29,10 +29,6 @@ final class AuthenticationViewModelImpl {
     init(storage: KeyChainService) {
         self.storage = storage
     }
-
-    deinit {
-        print("dealloc \(self)")
-    }
 }
 
 //MARK: - AuthenticationViewModel

@@ -16,7 +16,7 @@ protocol FavoritesImagePostsViewModelCell {
     var likeCounts: String { get }
     var commentsCount: String { get }
     var viewsCount: String { get }
-    var imageGroup: UIImage?  { get }
+    var imageGroup: UIImage? { get }
     var heightTextLabel: CGFloat? { get }
     var  imagePost: UIImage? { get }
     var isMoreButtonHidden: Bool { get }

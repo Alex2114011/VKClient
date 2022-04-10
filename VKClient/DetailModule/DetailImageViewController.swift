@@ -29,7 +29,7 @@ final class DetailImageViewController: UIViewController {
         return imageView
     }()
 
-    //MARK: - Initialization
+    //MARK: - Initialisation
 
     init(image: UIImage) {
         self.image = image

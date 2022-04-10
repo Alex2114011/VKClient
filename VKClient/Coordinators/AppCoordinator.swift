@@ -19,15 +19,11 @@ final class AppCoordinator: Coordinator {
 
     var navigationController: UINavigationController
 
-    //MARK: - initialization
+    //MARK: - Initialisation
 
     init(navigationController: UINavigationController, key: StorageService) {
         self.navigationController = navigationController
         self.credentialStorage = key
-    }
-    
-    deinit {
-        print("dealloc \(self)")
     }
 
     //MARK: - Public methods
@@ -67,7 +63,7 @@ extension AppCoordinator {
         }
     }
 
-    private func childDidFinish(_ coordinator: Coordinator ){
+    private func childDidFinish(_ coordinator: Coordinator ) {
         for (index, child) in childCoordinators.enumerated() {
             if child === coordinator {
                 childCoordinators.remove(at: index)

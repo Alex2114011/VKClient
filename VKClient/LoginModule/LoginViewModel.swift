@@ -14,10 +14,6 @@ protocol LoginViewModel {
 final class LoginViewModelImpl {
 
      weak var authCoordinator: AuthenticationCoordinator?
-
-    deinit {
-        print("dealloc \(self)")
-    }
 }
 
 //MARK: - LoginViewModel
