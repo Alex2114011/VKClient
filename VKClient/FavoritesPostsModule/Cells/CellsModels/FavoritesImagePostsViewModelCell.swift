@@ -18,7 +18,7 @@ protocol FavoritesImagePostsViewModelCell {
     var viewsCount: String { get }
     var imageGroup: UIImage? { get }
     var heightTextLabel: CGFloat? { get }
-    var  imagePost: UIImage? { get }
+    var imagePost: UIImage? { get }
     var isMoreButtonHidden: Bool { get }
     func change(height value: CGFloat)
 }

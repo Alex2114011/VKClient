@@ -35,6 +35,10 @@ final class NewsFeedImageTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    override func prepareForReuse() {
+        customViewCell.groupImage.image = nil
+        customViewCell.postImageView.image = nil
+    }
 }
 
 //MARK: - AbstractCell

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         guard let storageBuilder = storageBuilder else { return false }
         let credeintialStorage = storageBuilder.createSecureStorageService()
-
+//        credeintialStorage.secureStorageService.deleteToken(token: KeyToken.key.rawValue)
         let window = UIWindow(frame: UIScreen.main.bounds)
         let navigationController = UINavigationController()
 
